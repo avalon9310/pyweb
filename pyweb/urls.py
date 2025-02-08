@@ -19,6 +19,11 @@ from django.urls import path
 import first,views
 import home.views as home #from home import views as home
 import gallery.views as gallery
+from django.conf import settings
+from django.conf.urls.static import static
+
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('first/', first.html),
@@ -26,4 +31,9 @@ urlpatterns = [
     path('third/', views.third),
     path('', home.html),
     path('gallery/', gallery.html),
+    path('01/', views.html_01),
+    path('02/', views.html_02),
+    path('03/', views.html_03),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
