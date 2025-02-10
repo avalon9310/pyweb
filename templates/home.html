@@ -1,39 +1,49 @@
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>avalonJSP</title>
-</head>
+{% extends 'base.html' %}
+{%block content1 %}
+
 <style>
-    #div_banner{
-        background-color:#ffff00;
-        height:80px;
+    #div_master{
+        width:1280px;
+        height:100%;
+        display:flex;
+        flex-direction:row;
     }
-    #div_menu{
-        background-color:#0077ff;
-        height:37px;
+
+    #div_left{
+        flex-grow:1;
+        background-color:#f5f5f5;
+        width:1024px;
+        height:100%
     }
-    #div_content{
-        background-color:#007700;
-    }
-    #div_coperight{
-        background-color:#00aaff;
-        height:25px;
-        text-align:right;
+
+     #div_right{
+        background-color:#a0fafa;
+        width:320px;
+        height:100%
     }
 
 </style>
-<body>
-<div id="div_banner">
-這是我的首頁
+<div id="div_master">
+    <div id="div_left">
+        <div style="text-align:center;padding-top:20px;">
+            <img src="/static/images/038072.png" style="width:312;height:200;">
+        </div>
+    </div>
+    <div id="div_right">
+        <img src="/static/images/photo.jpg" width="300" height="400" style="margin:2px;">
+        <p style="padding-left:30px">
+            站長:Avalon Lin
+        </p>
+        <p style="padding-left:30px">
+        經歷:</br>
+        台北市大佳國民小學</br>
+        台北市五常國民中學</br>
+        康寧醫護暨管理專科學校資訊管理系</br>
+        台中科技大學流通管理系</br>
+        </p>
+        <p style="padding-left:30px">
+            email:asd95027@gmail.com
+        </p>>
+    </div>
 </div>
-<div id="div_menu">
-選單
-</div>
-<div id="div_content">
-Avalon Lin
-</div>
-<div id="div_coperight">
-Powerby Avalon Lin
-</div>
-</body>
-</html>
+{% endblock %}

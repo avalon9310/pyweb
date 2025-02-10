@@ -19,6 +19,11 @@ from django.urls import path
 import first,views
 import home.views as home #from home import views as home
 import gallery.views as gallery
+import travel.views as travel
+import tools.views as tools
+import twstock.views as twstock
+import twgold.views as twgold
+import session.views as session
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,13 +32,19 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('first/', first.html),
-    path('second/', views.second),
-    path('third/', views.third),
     path('', home.html),
     path('gallery/', gallery.html),
+    path('travel/', travel.html),
+    path('tools/', tools.html),
+    path('twstock/', twstock.html),
+    path('twgold/', twgold.html),
     path('01/', views.html_01),
     path('02/', views.html_02),
     path('03/', views.html_03),
+    path('login/', session.login),
+    path('logout/', session.logout),
+    path('login_process/', session.login_process),
+    path('check_session/', session.check_session),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
