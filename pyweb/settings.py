@@ -14,6 +14,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 from urllib.parse import urlparse
 
+
+
 load_dotenv()
 
 from django.conf.global_settings import STATICFILES_DIRS
@@ -29,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i2_^3&+he65@u**kpkibc6g8tj$igx-*pd*)j@o0wmgn@q)o!b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 PORT = os.getenv("PORT", "8000")
