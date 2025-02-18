@@ -45,6 +45,7 @@ urlpatterns = [
     path('logout/', session.logout),
     path('login_process/', session.login_process),
     path('check_session/', session.check_session),
+    path('reject/', session.reject),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])

@@ -17,13 +17,21 @@
     td{
         border:solid 1px;
     }
-
+    #login_form{
+        position : absolute;
+        z-index:10;
+    }
+    #login_error{
+        position : absolute;
+        //visibility:hidden;
+        //z-index:10;
+    }
     <!--
     csrf:關閉"跨站請求攻擊"的保護
     -->
 
 </style>
-    <form action="/login_process/" method="post">{% csrf_token %}
+    <form action="/login_process/" method="post" id="login_form">
         <table>
             <tr>
                 <td colspan="2">會員登入系統</td>
@@ -35,7 +43,7 @@
                 </td>
             </tr>
             <tr>
-                <td width="50px">密碼</td>
+                <td width="50px;">密碼</td>
                 <td>
                     <input type="password" name="userPassword"/>
                 </td>
@@ -47,6 +55,28 @@
             </tr>
         </table>
     </form>
-</body>
-</html>
+    <table id="login_error">
+        <tr>
+            <td>會員登入系統</td>
+        </tr>
+         <tr style="...">
+            <td>帳號或密碼錯誤</td>
+        </tr>
+        <tr>
+            <td>
+                <button type="button" onclick="hide_error():">確定</button>
+            </td>
+        </tr>
+    </table>
+<script>
+    {% if login == "error" %}
+        document.getElementById("login_form").style.visibility="hidden";
+        document.getElementById("login_error").style.visibility="visible";
+    {% endif %}
+    function hide_error(){
+        document.getElementById("login_from").style.visibility="visible";
+        document.getElementById("login_error").style.visibility="hidden";
+    }
+</script>
 {% endblock %}
+
