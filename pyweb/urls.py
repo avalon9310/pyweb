@@ -23,6 +23,7 @@ import travel.views as travel
 import tools.views as tools
 import twstock.views as twstock
 import twgold.views as twgold
+import solar.views as solar
 import session.views as session
 from django.conf import settings
 from django.conf.urls.static import static
@@ -38,6 +39,7 @@ urlpatterns = [
     path('tools/', tools.html),
     path('twstock/', twstock.html),
     path('twgold/', twgold.html),
+    path('solar/', solar.html),
     path('01/', views.html_01),
     path('02/', views.html_02),
     path('03/', views.html_03),
@@ -46,6 +48,7 @@ urlpatterns = [
     path('login_process/', session.login_process),
     path('check_session/', session.check_session),
     path('reject/', session.reject),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])

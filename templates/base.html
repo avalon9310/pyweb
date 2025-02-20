@@ -108,6 +108,9 @@
                     </li>
                 </ul>
             </li>
+            <li>
+                 <a href="/solar/">24節氣</a>
+             </li>
              <li id="logout">
                  <a href="/logout/">登出</a>
              </li>
@@ -126,5 +129,33 @@
         "MenuBar1", {imgDown:"/static/SpryAssets/SpryMenuBarDownHover.gif",
         imgRight:"http://localhost:7000/static/SpryAssets/SpryMenuBarRightHover.gif"}
     );
+
+    //Ajax 檢查是否有 session
+
+    check_session();
+    function connector(url){
+        if (window.XMLHttpRequest) conn=new XMLHttpRequest();//支援其它瀏覽器
+        else conn=new ActiveXObject("Microsoft.XMLHTTP");//支援IE
+        conn.open("GET",url, true);//設定連線的方式
+        return conn;
+    }
+    function check_session(){
+        url="/check_session/";
+        conn_session=connector(url);
+        conn_session.onreadystatechange=function(){
+	        if (conn_session.readyState==4 && conn_session.status==200){
+	            //要作的事情都寫在這裏面
+	            data=JSON.parse(conn_session.responseText);
+	            if (data["session"]=="ok"){//有session
+                    document.getElementById("logout").style.display="flex";
+	            }
+	            else{//沒有session
+                    document.getElementById("logout").style.display="none";
+	            }
+	        }
+        }
+        conn_session.send();
+    }
+
 </script>
 </html>

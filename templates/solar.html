@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content1 %}
+<style>
+    #div_solar_form{
+        width:150px;
+        height:25px;
+        margin:10px;
+        background-color:#f0f0f0;
+    }
+    #div_solar_content{
+        display:flex;
+        flex-grow:1;
+        width:100%;
+        flex-direction:row;
+        background-color:#ffff00;
+        align-items:center;
+    }
+</style>
+<div id="div_solar_form">
+    <label>西元年</label>
+    <select name="year" onchange="form_submit()">
+        {% for year in year_list %}
+            <option value="{{ year }}">{{ year }}</option>
+        {% endfor %}
+    </select>
+
+</div>
+<div id="div_solar_content">
+    <table width="500px">
+        <tr>
+            <td>hello</td>
+        </tr>
+    </table>
+    <div style="background-color:#f0f0f0;width:500px;height:100%;">圖片</div>
+</div>
+{% endblock %}

@@ -149,4 +149,4 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),"C:/pictures/"]
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-SESSION_COOKIE_AGE = 60
+SESSION_COOKIE_AGE = 7200
