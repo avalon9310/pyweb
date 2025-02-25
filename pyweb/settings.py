@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-i2_^3&+he65@u**kpkibc6g8tj$igx-*pd*)j@o0wmgn@q)o!b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 PORT = os.getenv("PORT", "8000")
@@ -51,11 +51,16 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     #'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:7000",
+    "http://127.0.0.1:7000"
 ]
 
 ROOT_URLCONF = 'pyweb.urls'
