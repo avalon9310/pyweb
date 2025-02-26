@@ -9,10 +9,12 @@ import json
 chance=3
 # Create your views here.
 def login(request):
+    info = G.saveHistory(request, 'login')
+
     if "loginCount" in request.session and request.session["loginCount"]>=chance:
         return redirect("/reject")
     else:
-        return render(request,'login.html')
+        return render(request,'login.html', {"info":info[1]})
 
 def logout(request):
     if 'userAccount' in request.session:

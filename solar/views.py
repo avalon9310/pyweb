@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from  datetime import  datetime
 from django.utils.safestring import mark_safe
 import numpy as np
-
+from G import G
 def html(request):
+    info = G.saveHistory(request, 'solar')
     request.session["currentPage"] = "/solar"
     if 'userAccount' not in request.session:
         return redirect("/login")
@@ -79,7 +80,8 @@ def html(request):
           {
                 'year_now':now,
                 'year_list': year_list,
-                'html':mark_safe(html)
+                'html':mark_safe(html),
+                "info": info[1],
           }
     )
 
