@@ -56,7 +56,7 @@
             </tr>
         </table>
     </form>
-    <table id="login_error">
+    <table id="login_error" style="visibility:hidden;">
         <tr>
             <td>會員登入系統</td>
         </tr>
@@ -65,7 +65,7 @@
         </tr>
         <tr>
             <td>
-                <button type="button" onclick="hide_error():">確定</button>
+                <button type="button" onclick="hide_error()">確定</button>
             </td>
         </tr>
     </table>
@@ -75,7 +75,7 @@
         document.getElementById("login_error").style.visibility="visible";
     {% endif %}
     function hide_error(){
-        document.getElementById("login_from").style.visibility="visible";
+        document.getElementById("login_form").style.visibility="visible";
         document.getElementById("login_error").style.visibility="hidden";
     }
 </script>

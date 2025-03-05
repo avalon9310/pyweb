@@ -6,15 +6,14 @@ import mysql.connector as mysql
 from G import G
 import json
 
-chance=3
+chance=1000
 # Create your views here.
 def login(request):
     info = G.saveHistory(request, 'login')
-
     if "loginCount" in request.session and request.session["loginCount"]>=chance:
         return redirect("/reject")
     else:
-        return render(request,'login.html', {"info":info[1]})
+        return render(request,'session/login.html', {"info":info[1],"userAccount":G.userAccount(request)})
 
 def logout(request):
     if 'userAccount' in request.session:
@@ -57,17 +56,11 @@ def login_process(request):
 
         if request.session['loginCount'] >=chance:
             return redirect("/reject")
-        return render(request, 'login.html',{"login":"error"})
-
-
-def check_session(request):
-    session = {"session": "ok"}
-    if "userAccount" not in request.session:
-        session["session"] ="error"
-    return HttpResponse(json.dumps(session), content_type="application/json")
+        return render(request, 'session/login.html',{"login":"error","userAccount":G.userAccount(request)})
 
 
 def reject(request):
-    return  render(request, 'reject.html')
+    info = G.saveHistory(request, '封鎖')
+    return  render(request,'session/reject.html',{"info":info[1],"userAccount":G.userAccount(request)})
 
 

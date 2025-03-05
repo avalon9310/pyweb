@@ -27,7 +27,7 @@ import solar.views as solar
 import session.views as session
 from django.conf import settings
 from django.conf.urls.static import static
-
+from upload import views as upload
 
 
 urlpatterns = [
@@ -35,6 +35,10 @@ urlpatterns = [
     path('first/', first.html),
     path('', home.html),
     path('gallery/', gallery.html),
+    path('gallery/thumb/', gallery.thumb),
+    path('gallery/thumb_doing/', gallery.thumb_doing),
+
+
     path('travel/', travel.html),
     path('tools/', tools.html),
     path('twstock/', twstock.html),
@@ -46,8 +50,10 @@ urlpatterns = [
     path('login/', session.login),
     path('logout/', session.logout),
     path('login_process/', session.login_process),
-    path('check_session/', session.check_session),
+    #path('check_session/', session.check_session),
     path('reject/', session.reject),
+    path('upload/photo_form/', upload.photo_form),
+    path('upload/photo_process/', upload.photo_process),
 
 ]
 if settings.DEBUG:

@@ -8,4 +8,4 @@ def html(request):
     request.session["currentPage"] = "/twgold"
     if 'userAccount' not in request.session:
         return redirect("/login")
-    return render(request,'twgold.html',{"info": info[1]})
+    return render(request,'twgold.html',{"info": info[1],"userAccount":G.userAccount(request)})

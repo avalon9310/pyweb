@@ -37,7 +37,7 @@ class G():
         #儲存到資料庫
         t = datetime.now()
         eventDay = t.strftime("%Y-%m-%d")
-        evenTime = t.t.strftime("%H:%M:%S")
+        evenTime = t.strftime("%H:%M:%S")
 
 
         return ip,mark_safe(
@@ -47,3 +47,9 @@ class G():
             <p class='info'>{lng:.5f} {lat:.5f}</p>
         """
         )
+    @staticmethod
+    def userAccount(request):
+        userAccount=""
+        if "userAccount" in request.session:
+            userAccount=request.session["userAccount"]
+        return userAccount

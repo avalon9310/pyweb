@@ -82,6 +82,7 @@ def html(request):
                 'year_list': year_list,
                 'html':mark_safe(html),
                 "info": info[1],
+                "userAccount":G.userAccount(request)
           }
     )
 

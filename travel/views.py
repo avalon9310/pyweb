@@ -7,4 +7,4 @@ def html(request):
     request.session["currentPage"] = "/travel"
     if 'userAccount' not in request.session:
         return redirect("/login")
-    return render(request,'travel.html',{"info": info[1]})
+    return render(request,'travel.html',{"info": info[1],"userAccount":G.userAccount(request)})
