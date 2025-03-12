@@ -16,8 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import first,views
-import home.views as home #from home import views as home
+import first
+from home import views as home #from home import views as home
 import gallery.views as gallery
 import travel.views as travel
 import tools.views as tools
@@ -32,28 +32,25 @@ from upload import views as upload
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('first/', first.html),
-    path('', home.html),
-    path('gallery/', gallery.html),
-    path('gallery/thumb/', gallery.thumb),
-    path('gallery/thumb_doing/', gallery.thumb_doing),
+    path("", home.html),  # html 是函數名稱，不是副檔名
+    path("gallery/", gallery.html),
 
+    path("gallery/thumb/", gallery.thumb),
+    path("gallery/thumb_doing/", gallery.thumb_doing),
+    path("gallery/listThumbDir/", gallery.listThumbDir),
 
-    path('travel/', travel.html),
-    path('tools/', tools.html),
-    path('twstock/', twstock.html),
-    path('twgold/', twgold.html),
-    path('solar/', solar.html),
-    path('01/', views.html_01),
-    path('02/', views.html_02),
-    path('03/', views.html_03),
-    path('login/', session.login),
-    path('logout/', session.logout),
-    path('login_process/', session.login_process),
-    #path('check_session/', session.check_session),
-    path('reject/', session.reject),
-    path('upload/photo_form/', upload.photo_form),
-    path('upload/photo_process/', upload.photo_process),
+    path("travel/", travel.html),
+    path("tools/", tools.html),
+    path("twstock/", twstock.html),
+    path("twgold/", twgold.html),
+    path("login/", session.login),
+    path("logout/", session.logout),
+    path("login_process/", session.login_process),
+    # path("check_session/", session.check_session),
+    path("reject/", session.reject),
+    path("solar/", solar.html),
+    path("upload/photo_form/", upload.photo_form),
+    path("upload/photo_process/", upload.photo_process),
 
 ]
 if settings.DEBUG:
